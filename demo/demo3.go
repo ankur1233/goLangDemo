@@ -21,7 +21,8 @@ func main() {
 		GBP        int
 	}
 
-	var obj DayPrice
+	// json data
+	var obj []DayPrice
 
 	// unmarshall it
 	err = json.Unmarshal(data, &obj)
@@ -29,9 +30,10 @@ func main() {
 		fmt.Println("error:", err)
 	}
 
-	// can access using struct now
-	fmt.Printf("USD : %v\n", obj.Monitor_id)
-	fmt.Println("EUR : " + obj.Name)
-	fmt.Printf("GBP : %v\n", obj.GBP)
+	//fmt.Printf("Birds : %+v", obj)
+
+	for i := range obj {
+		fmt.Println(obj[i].Monitor_id)
+	}
 
 }
